@@ -1,3 +1,16 @@
+/*
+Initial idea: For every 5 points there will be at least 3 points collinear.
+Loop and check all the C(5,3) ways and check what triple is collinear.
+Suppose (u,v,w) is collinear, fix w and then checking every (i,i+1) whether it belongs in the same line as (u,v,w) or not.
+If it does not belong in the same line, i or i+1 must be in the different line.
+If i is in the different line, i is saved to 'used'.
+Else, i+1 is saved to 'used'.
+Buf if 'used' is defined, there is already a point that is not in the line of (u,v,w), then the currently used and the 'used'
+belongs to the same line which is not the same line as (u,v,w).
+Repeat the process as it can be proved that if there exists at least 3 points in another line, then this algorithm will produce the correct answer.
+But if there is just one point left after the process, that point must not be in the the same line as (u,v,w) for sure.
+(If it is, then there is less than 3 points in another line, which contradicts the statement.)
+*/
 #include <bits/stdc++.h>
 #include "office.h"
 using namespace std;
